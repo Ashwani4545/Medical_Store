@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Prescription Ordering</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(7, 7, 8, 0.7), rgba(0, 0, 0, 0.7)), url('R.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: WHITE;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: white;
+            margin-top: 200px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50%;
+            max-width: 200px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ONLINE PRESCRIPTION</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Medicine Search</h2>
+        <form id="medicineSearchForm">
+            <label for="medicineName">Medicine Name</label>
+            <input type="text" id="medicineName" name="medicineName" placeholder="Enter medicine name">
+
+            <label for="prescription">Upload Prescription</label>
+            <input type="file" id="prescription" name="prescription" accept="image/*">
+
+            <button type="button" onclick="searchMedicine()">Search</button>
+        </form>
+        <div id="searchResults"></div>
+    </div>
+
+    <div class="container">
+        <h2>Cart</h2>
+        <div id="cart">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Delivery Address</h2>
+        <form id="addressForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <button type="button" onclick="saveAddress()">Save Address</button>
+        </form>
+        <div id="addressConfirmation" class="message"></div>
+    </div>
+
+    <div class="container">
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        let cart = [];
+        let address = {};
+
+        function searchMedicine() {
+            // Implement search functionality using AJAX or fetch API
+            // Update the searchResults div with the search results
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = ''; // Clear previous results
+            const medicineName = document.getElementById('medicineName').value;
+            // Use medicineName to search for medicines and display results
+        }
+
+        function addToCart(medicine) {
+            // Add medicine to cart with quantity
+            const quantity = 1; // Default quantity
+            const existingItemIndex = cart.findIndex(item => item.medicine === medicine);
+            if (existingItemIndex !== -1) {
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                cart.push({ medicine, quantity });
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            // Update the cart display
+            const cartDiv = document.getElementById('cart');
+            cartDiv.innerHTML = '';
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.textContent = `${item.medicine} x ${item.quantity}`;
+                cartDiv.appendChild(cartItemDiv);
+            });
+        }
+
+        function saveAddress() {
+            const fullName = document.getElementById('fullName').value;
+            const address = document.getElementById('address').value;
+            // Validate the address fields
+            if (fullName && address) {
+                // Save address to variable or send to server
+                address = { fullName, address };
+                document.getElementById('addressConfirmation').innerText = 'Address saved successfully.';
+                document.getElementById('addressConfirmation').classList.add('success');
+            } else {
+                document.getElementById('addressConfirmation').innerText = 'Please fill out all address fields.';
+                document.getElementById('addressConfirmation').classList.add('error');
+            }
+            document.getElementById('addressConfirmation').style.display = 'block';
+        }
+
+        function proceedToPayment() {
+            // Check if address is saved
+            if (Object.keys(address).length === 0) {
+                alert('Please save your address before proceeding to payment.');
+                return;
+            }
+            // Redirect to payment page
+            window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Drink Supplements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(7, 7, 8, 0.7), rgba(0, 0, 0, 0.7)), url('R.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: white;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: black;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            width: 100%;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            width: calc(20% - 20px);
+            margin: 10px;
+            perspective: 1000px;
+        }
+
+        .product-inner {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .product:hover .product-inner {
+            transform: rotateY(180deg);
+        }
+
+        .product-front,
+        .product-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-front {
+            background-color: #f8f9fa;
+        }
+
+        .product-back {
+            background-color: #007bff;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product img {
+            max-width: 50%;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #007bff;
+        }
+
+        .product .btn {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .cart {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .cart h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart-items li {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cart-items li .item-name {
+            font-size: 16px;
+        }
+
+        .cart-items li .item-price {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Health and Drink Supplements</h1>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Protein and Nutritional Drinks</h2>
+        <div id="products" class="product-container">
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="boost.avif" alt="Boost">
+                        <h3>BOOST</h3>
+                        <p class="price">$20.00</p>
+                        <button class="btn" onclick="addToCart('BOOST', 20)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>BOOST</h3>
+                        <p>Energy Drink</p>
+                        <p>Rich in Protein and Vitamins</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="Horlicks.gif" alt="Horlicks">
+                        <h3>HORLICKS HEALTH AND NUTRITIONAL DRINKS</h3>
+                        <p class="price">$25.00</p>
+                        <button class="btn" onclick="addToCart('HORLICKS HEALTH AND NUTRITIONAL DRINKS', 25)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>HORLICKS</h3>
+                        <p>Health Drink</p>
+                        <p>Fortified with Vitamins and Minerals</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="pediasure.jpg" alt="Pediasure">
+                        <h3>PEDIASURE HEALTH</h3>
+                        <p class="price">$30.00</p>
+                        <button class="btn" onclick="addToCart('PEDIASURE HEALTH', 30)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>PEDIASURE</h3>
+                        <p>Complete Nutrition for Kids</p>
+                        <p>High in Protein</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="WomensHorlicks.jpg" alt="Women's Horlicks">
+                        <h3>HORLICKS WOMEN'S PLUS</h3>
+                        <p class="price">$35.00</p>
+                        <button class="btn" onclick="addToCart('HORLICKS WOMENs PLUS', 35)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>HORLICKS WOMEN'S PLUS</h3>
+                        <p>Nutrition for Women</p>
+                        <p>Rich in Calcium and Vitamin D</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="bournvita.jpg" alt="Bournvita">
+                        <h3>BOURNVITA</h3>
+                        <p class="price">$40.00</p>
+                        <button class="btn" onclick="addToCart('BOURNVITA', 40)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>BOURNVITA</h3>
+                        <p>Chocolate Health Drink</p>
+                        <p>Boosts Stamina and Strength</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="ensure.webp" alt="Ensure">
+                        <h3>ENSURE</h3>
+                        <p class="price">$40.00</p>
+                        <button class="btn" onclick="addToCart('ENSURE', 40)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>ENSURE</h3>
+                        <p>Complete Balanced Nutrition</p>
+                        <p>Supports Muscle Health</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="protinex.jpg" alt="Protinex">
+                        <h3>PROTINEX</h3>
+                        <p class="price">$40.00</p>
+                        <button class="btn" onclick="addToCart('PROTINEX', 40)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>PROTINEX</h3>
+                        <p>High Protein Nutrition Drink</p>
+                        <p>Supports Growth and Immunity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="glucon-d.jpg" alt="Glucon-D Orange">
+                        <h3>GLUCON-D ORANGE</h3>
+                        <p class="price">$40.00</p>
+                        <button class="btn" onclick="addToCart('GLUCON-D ORANGE', 40)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>GLUCON-D ORANGE</h3>
+                        <p>Energy Drink</p>
+                        <p>Quick Source of Energy</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="nestle-milo.jpg" alt="Nestle Milo">
+                        <h3>NESTLE MILO</h3>
+                        <p class="price">$40.00</p>
+                        <button class="btn" onclick="addToCart('NESTLE MILO', 40)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>NESTLE MILO</h3>
+                        <p>Chocolate Drink Mix</p>
+                        <p>Rich in Energy and Nutrients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-inner">
+                    <div class="product-front">
+                        <img src="nutricharge.webp" alt="Nutricharge Kids">
+                        <h3>NUTRICHARGE KIDS</h3>
+                        <p class="price">$40.00</p>
+                        <button class="btn" onclick="addToCart('NUTRICHARGE KIDS', 40)">Buy Now</button>
+                    </div>
+                    <div class="product-back">
+                        <h3>NUTRICHARGE KIDS</h3>
+                        <p>Multivitamin & Protein Nutrition</p>
+                        <p>For Children</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items" class="cart-items"></ul>
+        <h3>Total: $<span id="total">0.00</span></h3>
+    </div>
+
+    <script>
+        const cartItems = [];
+        let total = 0;
+
+        function addToCart(product, price) {
+            cartItems.push({ product, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsList = document.getElementById('cart-items');
+            cartItemsList.innerHTML = '';
+            cartItems.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="item-name">${item.product}</span> - $<span class="item-price">${item.price.toFixed(2)}</span>`;
+                cartItemsList.appendChild(li);
+            });
+
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>

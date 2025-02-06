@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Administration</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: linear-gradient(rgba(7, 7, 8, 0.7),rgba(0, 0, 0, 0.7)),url('R.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    color: #fff;
+    text-align: right;
+    padding: 20px 0;
+}
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: white;
+            text-decoration: none;
+            margin-left: 0.05px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: white;
+            margin-bottom: 30px;
+            margin-left: 20px;
+        }
+
+        #home {
+            background-color: none;
+            padding: 7.5px 0;
+            text-align: center;
+        }
+
+        #home h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+/* About and Services sections */
+        section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Contact section */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+/* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .footer-links ul,
+        .footer-social ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li,
+        .footer-social ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .footer-links a,
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-icon">🛒</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <section id="home">
+        <h1>VACCINE ADMINISTRATION SYSTEM</h1>
+        <div class="container">
+            <h2>Welcome to our Vaccine Administration System</h2>
+            <p>Get vaccinated to protect yourself and your community.</p>
+            <a href="#contact" class="btn">Book Appointment</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Learn about our mission and values.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>Discover the range of vaccines and services we offer.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Book your appointment or get in touch with us for inquiries.</p>
+            <form action="submit.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Vaccine Administration</h3>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-icon">🛒</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vaccine Administration. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add this JavaScript code in a script tag or a separate file.
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(form);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const phone = formData.get("phone");
+        const message = formData.get("message");
+
+        // Here you can send the form data to your server using fetch or other methods.
+        // For demonstration purposes, let's just log the form data.
+        console.log("Form submitted:");
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Phone:", phone);
+        console.log("Message:", message);
+
+        // After form submission, you can show a success message or redirect the user.
+        alert("Form submitted successfully!");
+        form.reset();
+    });
+});
+    </script>
+</body>
+</html>

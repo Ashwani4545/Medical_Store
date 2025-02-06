@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24/7 Customer Support</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(7, 7, 8, 0.7), rgba(0, 0, 0, 0.7)), url('R.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 15px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1rem;
+        }
+
+        .cart-icon {
+            font-size: 1.5rem;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: left;
+        }
+
+        .search-bar select,
+        .search-bar input[type="text"] {
+            padding: 5px;
+            margin-left: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            margin-top: 20px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: white;
+            text-decoration: none;
+            margin-left: 530px;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 30px;
+            margin-left: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+       
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"],
+.btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+.btn:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    display: none;
+    flex-direction: column;
+}
+
+.chat-header {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-footer input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-footer button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-footer button:hover {
+    background-color: #555;
+}
+
+        footer {
+            background-color: #0e0e1a;
+        }
+
+        .footer {
+            display: flex;
+            margin: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer > div {
+            width: 223px;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+
+        </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left"><b>MEDICAL STORE</b></div>
+            <div class="search-bar">
+                <select name="category" id="category">
+                    <option value="category">All cateogries</option>
+                    <option value="medicine">Medicine</option>
+                    <option value="supplements">Health and Drinks Supplements</option>
+                    <option value="personal-care">Personal Care</option>
+                    <option value="baby-care">Baby Care</option>
+                </select>
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-icon">🛒</a></li>
+                    <li><a href="Register_In.html" class="sign-in-icon">🔑</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h1>24/7 Customer Support</h1>
+    <section id="home">
+        <div class="container">
+            <h2>Welcome to Our 24/7 Customer Support</h2>
+            <p>We are here to help you at any time of the day.</p>
+            <button class="btn" id="chatButton">Chat with Us</button>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <ul>
+                <li>24/7 Live Chat Support</li>
+                <li>Email Support</li>
+                <li>Phone Support</li>
+                <li>Knowledge Base</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are dedicated to providing the best customer service experience. Our support team is available 24/7 to assist you with any issues or questions you may have.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 24/7 Customer Support. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="chatBox" class="chat-box">
+        <div class="chat-header">
+            <h3>Live Chat</h3>
+            <button id="closeChatButton">&times;</button>
+        </div>
+        <div class="chat-body">
+            <div id="chatMessages" class="chat-messages"></div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendChatButton">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js">
+        document.addEventListener("DOMContentLoaded", function() {
+    const chatButton = document.getElementById("chatButton");
+    const chatBox = document.getElementById("chatBox");
+    const closeChatButton = document.getElementById("closeChatButton");
+    const sendChatButton = document.getElementById("sendChatButton");
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+
+    chatButton.addEventListener("click", function() {
+        chatBox.style.display = "flex";
+    });
+
+    closeChatButton.addEventListener("click", function() {
+        chatBox.style.display = "none";
+    });
+
+    sendChatButton.addEventListener("click", function() {
+        const message = chatInput.value.trim();
+        if (message) {
+            addChatMessage("You", message);
+            chatInput.value = "";
+            // Simulate a response from the support team
+            setTimeout(() => {
+                addChatMessage("Support", "Thank you for reaching out. How can we help you?");
+            }, 1000);
+        }
+    });
+
+    function addChatMessage(sender, message) {
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("chat-message");
+        messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const formData = new FormData(contactForm);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const message = formData.get("message");
+
+        // Here you can implement logic to send the form data to your server
+        // For example, you can use fetch API to send a POST request
+
+        alert(`Thank you, ${name}! Your message has been sent.`);
+        contactForm.reset();
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(7, 7, 8, 0.7), rgba(0, 0, 0, 0.7)), url('R.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1rem;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: white;
+            text-decoration: none;
+            margin-left: 610px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: white;
+            margin-left: 675px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: white;
+            margin-left: 675px;
+        }
+
+        p {
+            font-size: 25px;
+            color: white;
+            margin-left: 80px;
+            justify-content: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .footer-links ul,
+        .footer-social ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li,
+        .footer-social ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .footer-links a,
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #bookingStatus {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+</style> 
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LAB Booking</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="booking">
+            <h2>Book Appointment</h2>
+            <form id="bookingForm" onsubmit="submitForm(event)">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="problem">Problem Details</label>
+                <textarea id="problem" name="problem" rows="4" required></textarea>
+
+                <button type="submit">Book Now</button>
+            </form>
+            <div id="bookingStatus"></div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <h3>LAB Booking</h3>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 LAB Booking. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script src="script.js">
+        function submitForm(event) {
+    event.preventDefault();
+
+    const form = document.getElementById('bookingForm');
+    const formData = new FormData(form);
+
+    fetch('/api/book-appointment', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const bookingStatus = document.getElementById('bookingStatus');
+        if (data.success) {
+            bookingStatus.innerText = 'Appointment booked successfully!';
+            form.reset();
+        } else {
+            bookingStatus.innerText = 'Failed to book appointment. Please try again later.';
+        }
+    })
+    .catch(error => {
+        const bookingStatus = document.getElementById('bookingStatus');
+        bookingStatus.innerText = 'An error occurred while booking the appointment. Please try again later.';
+    });
+}
+    </script>
+</body>
+</html>

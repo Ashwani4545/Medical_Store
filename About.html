@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About Us - VINDHYAVASINI MEDICAL STORE</title>
+    <style>
+       
+       * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(7, 7, 8, 0.7), rgba(0, 0, 0, 0.7)), url('R.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 15px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1rem;
+        }
+
+        .cart-icon {
+            font-size: 1.5rem;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: left;
+        }
+
+        .search-bar select,
+        .search-bar input[type="text"] {
+            padding: 5px;
+            margin-left: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+.content {
+    margin-top: 2.5%;
+    color: #fff;       
+}
+
+#about {
+    text-align: center;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+p {
+    color: white;
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#about h2 {
+    font-size: 50px;
+    text-decoration: none;
+    color: beige;
+    margin-bottom: 20px;
+}
+
+#about h3 {
+    font-size: 35px;
+    text-decoration: none;
+    color: white;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#about ul {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    padding-left: 20px;
+    font-size: 18px;
+    
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: aliceblue;
+    border: 1px solid #fff;
+    padding: 4px 10px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn:hover{
+    border: 1px solid#f6f6f6;
+    background: #ffffff;
+    transition: 0.5s;
+    color: #444;
+    font-weight: 600;
+}
+
+footer {
+            background-color: #0e0e1a;
+        }
+
+        .footer {
+            display: flex;
+            margin: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer > div {
+            width: 223px;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left"><b>MEDICAL STORE</b></div>
+            <div class="search-bar">
+                <select name="category" id="category">
+                    <option value="category">All cateogries</option>
+                    <option value="medicine">Medicine</option>
+                    <option value="supplements">Health and Drinks Supplements</option>
+                    <option value="personal-care">Personal Care</option>
+                    <option value="baby-care">Baby Care</option>
+                </select>
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-icon">🛒</a></li>
+                    <li><a href="Register_In.html" class="sign-in-icon">🔑</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>VINDHYAVASINI MEDICAL STORE</h2>
+            <div class="content">
+     
+                <p>Our store is dedicated to providing a wide range of medicines and healthcare products to meet the diverse medical needs of our community.</p>
+                <p>Our store is equipped with a comprehensive inventory that includes:</p>
+                
+                <h3>Types of Medicines We Keep</h3>
+                <p>We offer solutions for various <b><a href="https://my.clevelandclinic.org/health/diseases/21573-skin-diseases">skin diseases</b></a>, including both tablets and topical treatments for <a href="https://my.clevelandclinic.org/health/diseases/21573-skin-diseases"><b>fungal infections</b></a></p>
+                <p>Our inventory also includes high-quality <b><a href="https://www.amazon.com/s?k=vitamin+supplemements&crid=165WY6I2JF9Y0&sprefix=vitamin+supplemements+%2Caps%2C351&ref=nb_sb_noss_2">vitamin supplements</b></a> and syrups, known for their rapid efficacy in enhancing your health.</p>
+                <p>We understand the importance of managing chronic conditions, so we carry medicines to control <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/diabetes/diabetes-and-high-blood-pressure#:~:text=High%20blood%20pressure%20is%20twice%20as%20likely%20to,who%20does%20not%20have%20either%20of%20the%20conditions."><b>diabetes and blood pressure</b></a>, helping you maintain a healthy lifestyle.</p>
+                <p>For more critical health issues, we maintain a stock of <a href="https://www.britannica.com/science/antibiotic"><b>antibiotics</b></a> in both tablet and syringe forms. </p>
+    
+            </div>
+            <a href="Services.html" class="btn">Back</a> 
+            <a href="Contact.html" class="btn">Next</a>
+        </section>
+
+        <hr>
+    <footer>
+        <div class="footer-rights">
+            Copyright &#169; vindhyavasinimedicalstore.com | All rights are reserved
+        </div>
+    </footer>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>    
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Delivery Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    background: #333;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background: #444;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Home Delivery Service</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-icon">🛒</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <div class="container" id="products">
+        <h2>Products</h2>
+        <div class="product" data-id="1">
+            <h3>Product 1</h3>
+            <p>$10</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-id="2">
+            <h3>Product 2</h3>
+            <p>$15</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <!-- Add more products as needed -->
+    </div>
+
+    <div class="container" id="cart">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <button id="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+    <div class="container" id="checkout">
+        <h2>Checkout</h2>
+        <form id="checkoutForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Place Order</button>
+        </form>
+        <div id="confirmationMessage" class="message"></div>
+    </div>
+
+    <script src="script.js">
+        document.addEventListener("DOMContentLoaded", function() {
+    const cart = [];
+    const cartItems = document.getElementById('cart-items');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const product = this.closest('.product');
+            const productId = product.getAttribute('data-id');
+            const productName = product.querySelector('h3').innerText;
+            const productPrice = product.querySelector('p').innerText;
+
+            cart.push({ id: productId, name: productName, price: productPrice });
+            updateCart();
+        });
+    });
+
+    function updateCart() {
+        cartItems.innerHTML = '';
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - ${item.price}`;
+            cartItems.appendChild(li);
+        });
+    }
+
+    checkoutBtn.addEventListener('click', function() {
+        document.getElementById('checkout').scrollIntoView();
+    });
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        // Simulate sending data to server
+        setTimeout(() => {
+            confirmationMessage.textContent = "Your order has been placed successfully!";
+            confirmationMessage.classList.add("success");
+            document.getElementById('checkout').scrollIntoView();
+        }, 1000);
+    });
+});
+    </script>
+</body>
+</html>

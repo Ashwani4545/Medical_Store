@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Equipment Rental</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(7, 7, 8, 0.7), rgba(0, 0, 0, 0.7)), url('R.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1rem;
+        }
+
+        .cart-icon {
+            font-size: 1.5rem;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar select,
+        .search-bar input[type="text"] {
+            padding: 5px;
+            margin-left: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center; /* Align text to the left */
+        }
+
+        h1 {
+            font-size: 50px;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            color: white;
+        }
+
+        select, input[type="number"], input[type="text"], input[type="email"], input[type="tel"] {
+            width: 40%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"], button[type="button"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 15%;
+        }
+
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #555;
+        }
+
+        #rentalDetails {
+            margin-top: 20px;
+            display: none;
+        }
+
+        #rentalDetails p {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        #rentalDetails strong {
+            margin-right: 5px;
+        }
+
+        .payment-section {
+            margin-top: 20px;
+        }
+
+        .bill-section {
+            margin-top: 20px;
+            display: none;
+        }
+
+        footer {
+            background-color: #0e0e1a;
+        }
+
+        .footer {
+            display: flex;
+            margin: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer > div {
+            width: 223px;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left"><b>MEDICAL STORE</b></div>
+            <div class="search-bar">
+                <select name="category" id="category">
+                    <option value="category">All categories</option>
+                    <option value="medicine">Medicine</option>
+                    <option value="supplements">Health and Drinks Supplements</option>
+                    <option value="personal-care">Personal Care</option>
+                    <option value="baby-care">Baby Care</option>
+                </select>
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-icon">🛒</a></li>
+                    <li><a href="Register_In.html" class="sign-in-icon">🔑</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>MEDICAL EQUIPMENT RENTAL</h1>
+        <h2>Rent Medical Equipment</h2>
+        <form id="rentalForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone No.</label>
+            <input type="tel" id="phone" name="phone" required pattern="\d*" inputmode="numeric">
+
+            <label for="altPhone">Alternate Phone No.</label>
+            <input type="tel" id="altPhone" name="altPhone" required pattern="\d*" inputmode="numeric">
+
+            <label for="equipment">Select Equipment</label>
+            <select id="equipment" name="equipment" required>
+                <option value="">Select Equipment</option>
+                <option value="Wheelchair">Wheelchair</option>
+                <option value="Crutches">Crutches</option>
+                <option value="Hospital Bed">Hospital Bed</option>
+                <option value="Walker">Walker</option>
+                <option value="CPAP Machine">CPAP Machine</option>
+            </select>
+
+            <label for="duration">Rental Duration (days)</label>
+            <input type="number" id="duration" name="duration" required>
+
+            <button type="submit" class="btn">Rent Now</button>
+            <button type="button" class="btn" id="cancelRentButton">Cancel</button>
+            <button type="button" class="btn" id="clearFormButton">Clear</button>
+        </form>
+
+        <div id="rentalDetails">
+            <h2>Rental Details</h2>
+            <p><strong>Name:</strong> <span id="customerName"></span></p>
+            <p><strong>Email:</strong> <span id="customerEmail"></span></p>
+            <p><strong>Phone No.:</strong> <span id="customerPhone"></span></p>
+            <p><strong>Alternate Phone No.:</strong> <span id="customerAltPhone"></span></p>
+            <p><strong>Equipment:</strong> <span id="equipmentName"></span></p>
+            <p><strong>Rental Duration:</strong> <span id="rentalDuration"></span> days</p>
+            <p><strong>Total Rental Cost:</strong> $<span id="totalCost"></span></p>
+        </div>
+
+        <div class="payment-section">
+            <h2>Payment</h2>
+            <button type="button" id="payNowButton">Pay Now</button>
+            <button type="button" class="btn" id="cancelPayButton">Cancel</button>
+            <button type="button" class="btn" id="clearDetailsButton">Clear</button>
+        </div>
+
+        <div class="bill-section" id="billSection">
+            <h2>Bill</h2>
+            <p><strong>Name:</strong> <span id="billCustomerName"></span></p>
+            <p><strong>Email:</strong> <span id="billCustomerEmail"></span></p>
+            <p><strong>Phone No.:</strong> <span id="billCustomerPhone"></span></p>
+            <p><strong>Alternate Phone No.:</strong> <span id="billCustomerAltPhone"></span></p>
+            <p><strong>Equipment:</strong> <span id="billEquipmentName"></span></p>
+            <p><strong>Rental Duration:</strong> <span id="billRentalDuration"></span> days</p>
+            <p><strong>Total Rental Cost:</strong> $<span id="billTotalCost"></span></p>
+            <p>Your equipment is booked, and you can collect it.</p>
+            <button type="button" id="printBillButton">Print Bill</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-rights">
+            Copyright &#169; vindhyavasinimedicalstore.com | All rights are reserved
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const rentalForm = document.getElementById("rentalForm");
+            const rentalDetails = document.getElementById("rentalDetails");
+            const equipmentName = document.getElementById("equipmentName");
+            const rentalDuration = document.getElementById("rentalDuration");
+            const totalCost = document.getElementById("totalCost");
+            const customerName = document.getElementById("customerName");
+            const customerEmail = document.getElementById("customerEmail");
+            const customerPhone = document.getElementById("customerPhone");
+            const customerAltPhone = document.getElementById("customerAltPhone");
+
+            const payNowButton = document.getElementById("payNowButton");
+            const billSection = document.getElementById("billSection");
+            const billCustomerName = document.getElementById("billCustomerName");
+            const billCustomerEmail = document.getElementById("billCustomerEmail");
+            const billCustomerPhone = document.getElementById("billCustomerPhone");
+            const billCustomerAltPhone = document.getElementById("billCustomerAltPhone");
+            const billEquipmentName = document.getElementById("billEquipmentName");
+            const billRentalDuration = document.getElementById("billRentalDuration");
+            const billTotalCost = document.getElementById("billTotalCost");
+            const printBillButton = document.getElementById("printBillButton");
+
+            const cancelRentButton = document.getElementById("cancelRentButton");
+            const cancelPayButton = document.getElementById("cancelPayButton");
+            const clearFormButton = document.getElementById("clearFormButton");
+            const clearDetailsButton = document.getElementById("clearDetailsButton");
+
+            rentalForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                // Get form data
+                const formData = new FormData(rentalForm);
+                const name = formData.get("name");
+                const email = formData.get("email");
+                const phone = formData.get("phone");
+                const altPhone = formData.get("altPhone");
+                const equipment = formData.get("equipment");
+                const duration = parseInt(formData.get("duration"));
+
+                // Calculate total cost based on rental duration
+                let costPerDay = 0;
+                switch (equipment) {
+                    case "Wheelchair":
+                        costPerDay = 20;
+                        break;
+                    case "Crutches":
+                        costPerDay = 10;
+                        break;
+                    case "Hospital Bed":
+                        costPerDay = 50;
+                        break;
+                    case "Walker":
+                        costPerDay = 15;
+                        break;
+                    case "CPAP Machine":
+                        costPerDay = 30;
+                        break;
+                }
+
+                const total = costPerDay * duration;
+
+                // Display rental details
+                customerName.textContent = name;
+                customerEmail.textContent = email;
+                customerPhone.textContent = phone;
+                customerAltPhone.textContent = altPhone;
+                equipmentName.textContent = equipment;
+                rentalDuration.textContent = duration;
+                totalCost.textContent = total;
+
+                rentalDetails.style.display = "block";
+                billSection.style.display = "none";
+            });
+
+            payNowButton.addEventListener("click", function() {
+                // Display bill details
+                billCustomerName.textContent = customerName.textContent;
+                billCustomerEmail.textContent = customerEmail.textContent;
+                billCustomerPhone.textContent = customerPhone.textContent;
+                billCustomerAltPhone.textContent = customerAltPhone.textContent;
+                billEquipmentName.textContent = equipmentName.textContent;
+                billRentalDuration.textContent = rentalDuration.textContent;
+                billTotalCost.textContent = totalCost.textContent;
+
+                billSection.style.display = "block";
+            });
+
+            printBillButton.addEventListener("click", function() {
+                window.print();
+            });
+
+            cancelRentButton.addEventListener("click", function() {
+                rentalForm.reset();
+                rentalDetails.style.display = "none";
+            });
+
+            cancelPayButton.addEventListener("click", function() {
+                rentalDetails.style.display = "none";
+                billSection.style.display = "none";
+            });
+
+            clearFormButton.addEventListener("click", function() {
+                rentalForm.reset();
+            });
+
+            clearDetailsButton.addEventListener("click", function() {
+                rentalDetails.style.display = "none";
+                billSection.style.display = "none";
+            });
+        });
+    </script>
+</body>
+</html>

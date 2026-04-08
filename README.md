@@ -1,12 +1,11 @@
 # Medical Store Website
 
-Medical Store Website
-
-Overview
+## Project Overview
 
 The Medical Store Website is a responsive and user-friendly web application designed to facilitate online purchasing of medicines and healthcare products. It allows users to browse through a wide range of medicines, order prescriptions, and get home delivery. The platform also provides additional healthcare services such as doctor consultations, health blogs, and reminders for medication.
 
-Features
+
+## Features
 
 🏥 Medicine Listings – Browse and purchase medicines with detailed descriptions and pricing.
 
@@ -28,7 +27,10 @@ Features
 
 📞 Customer Support – 24/7 support for medical queries and assistance.
 
-Technologies Used
+
+## Technologies Used
+
+PHP - Backend
 
 HTML – Structuring web pages.
 
@@ -36,7 +38,8 @@ CSS – Styling and responsive design.
 
 JavaScript – Dynamic functionality and interactivity.
 
-Usage
+
+## Usage
 
 Browse available medicines and healthcare products.
 
@@ -50,7 +53,8 @@ Track the order status from the dashboard.
 
 Book an online consultation with a doctor if needed.
 
-Future Enhancements
+
+## Future Enhancements
 
 🏥 Telemedicine Services – Provide virtual consultations.
 
